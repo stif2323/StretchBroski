@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gymbroski Stretch Guide</title>
+    <title>Gymbroski Stretch Guide - Torso Limbs V2</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,29 +66,61 @@
             <i class="fa-solid fa-dumbbell text-emerald-500"></i>
             GYMBROSKI STRETCH
         </h1>
-        <p class="text-gray-400 mt-2 text-sm">Post-Workout Recovery Protocol</p>
+        <p class="text-gray-400 mt-2 text-sm">Post-Workout Recovery Protocol &bull; Torso Limbs V2</p>
     </header>
 
     <!-- ROUTINE SELECTOR -->
-    <div id="selector-screen" class="w-full max-w-2xl flex flex-col gap-4 transition-all duration-500">
-        <h2 class="text-xl font-semibold mb-2 text-center">Seleziona la scheda di oggi:</h2>
-        <div class="grid grid-cols-2 gap-4">
-            <button onclick="app.selectRoutine('Torso A')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
-                <i class="fa-solid fa-child-reaching text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
-                <span class="font-bold text-lg">Torso A</span>
-            </button>
-            <button onclick="app.selectRoutine('Limbs A')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
-                <i class="fa-solid fa-shoe-prints text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
-                <span class="font-bold text-lg">Limbs A</span>
-            </button>
-            <button onclick="app.selectRoutine('Torso B')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
-                <i class="fa-solid fa-person-arrow-up-from-line text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
-                <span class="font-bold text-lg">Torso B</span>
-            </button>
-            <button onclick="app.selectRoutine('Limbs B')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
-                <i class="fa-solid fa-person-running text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
-                <span class="font-bold text-lg">Limbs B</span>
-            </button>
+    <div id="selector-screen" class="w-full max-w-2xl flex flex-col gap-6 transition-all duration-500">
+        <div>
+            <h2 class="text-xl font-semibold mb-3 text-center">Seleziona la scheda di oggi:</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="app.selectRoutine('Torso A')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
+                    <i class="fa-solid fa-child-reaching text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    <span class="font-bold text-lg">Torso A</span>
+                </button>
+                <button onclick="app.selectRoutine('Limbs A')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
+                    <i class="fa-solid fa-shoe-prints text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    <span class="font-bold text-lg">Limbs A</span>
+                </button>
+                <button onclick="app.selectRoutine('Torso B')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
+                    <i class="fa-solid fa-person-arrow-up-from-line text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    <span class="font-bold text-lg">Torso B</span>
+                </button>
+                <button onclick="app.selectRoutine('Limbs B')" class="bg-gray-800 hover:bg-emerald-600 border border-gray-700 rounded-xl p-6 transition-colors shadow-lg flex flex-col items-center gap-2 group">
+                    <i class="fa-solid fa-person-running text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                    <span class="font-bold text-lg">Limbs B</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SETTINGS PANEL -->
+        <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-5 shadow-xl">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-sliders"></i> Personalizza Tempi
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Prep Duration Setting -->
+                <div class="flex flex-col gap-2">
+                    <label for="input-rest" class="text-xs text-gray-300 font-medium">Tempo di Preparazione (sec)</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="input-rest" value="10" min="0" max="120" 
+                            class="bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-white font-bold w-full focus:outline-none focus:border-emerald-500 text-center"
+                            onchange="app.updateSettings()">
+                    </div>
+                </div>
+
+                <!-- Exercise Duration Setting -->
+                <div class="flex flex-col gap-2">
+                    <label for="input-duration" class="text-xs text-gray-300 font-medium">Durata Esercizio Standard (sec)</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="input-duration" value="45" min="5" max="600" 
+                            class="bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-white font-bold w-full focus:outline-none focus:border-emerald-500 text-center"
+                            onchange="app.updateSettings()">
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-3 text-center">*(La durata dell'esercizio si applicherà come valore predefinito per gli esercizi della sessione)*</p>
         </div>
     </div>
 
@@ -146,7 +178,7 @@
             
             <button id="btn-next" onclick="app.nextStep()" class="bg-gray-700 hover:bg-gray-600 rounded-xl py-4 flex flex-col items-center justify-center transition-colors">
                 <i class="fa-solid fa-forward-step text-xl mb-1"></i>
-                <span class="text-xs uppercase tracking-wider font-bold">Salta</span>
+                <span class="text-xs uppercase tracking-wider font-bold">Avanti</span>
             </button>
         </div>
     </div>
@@ -165,39 +197,135 @@
 
     <!-- APPLICATION LOGIC -->
     <script>
-        // Data Structure
-        const routinesData = {
+        // Base Data Structure calibrated on TORSO LIMBS V2
+        const baseRoutinesData = {
             'Torso A': [
-                { name: "Stretching Pettorali alla Porta", duration: 45, target: "Gran Pettorale", note: "Gomito a 90° appoggiato al montante, ruota il busto all'esterno senza inarcare la schiena. ⚠️ RIPETI PER LATO." },
-                { name: "Child's Pose", duration: 45, target: "Gran Dorsale", note: "In ginocchio, bacino sui talloni, allunga le braccia in avanti." },
-                { name: "Stretching Deltoide Laterale", duration: 30, target: "Deltoide Laterale", note: "Porta il braccio teso al petto e bloccalo. ⚠️ RIPETI PER LATO." },
-                { name: "Cobra Pose Leggero", duration: 30, target: "Addominali", note: "Sdraiato a pancia in giù, spingi sulle mani estendendo il busto. Non comprimere la lombare." }
+                {
+                    name: "Stretching Pettorali alla Porta (Braccio Alto)",
+                    duration: 45,
+                    target: "Gran Pettorale (Fasci Clavicolari)",
+                    note: "Gomito leggermente sopra la linea della spalla appoggiato al montante (ideale post-panca inclinata), ruota il busto all'esterno senza inarcare la schiena. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Doorway Lat Stretch",
+                    duration: 45,
+                    target: "Gran Dorsale / Grande Rotondo",
+                    note: "Afferra un montante o il rack con una mano e spingi il bacino all'indietro lasciando aprire il fianco dopo Pull Up e Pullover. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Thread the Needle",
+                    duration: 45,
+                    target: "Deltoide Posteriore / Romboidi",
+                    note: "In quadrupedia, infila un braccio sotto il busto appoggiando spalla e tempia a terra per detendere l'alta schiena dopo T-Bar Row e Reverse Fly. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Cobra Pose Controllato",
+                    duration: 45,
+                    target: "Retto Addominale / Ileopsoas",
+                    note: "Sdraiato a pancia in giù, spingi sulle mani estendendo il torace senza comprimere la lombare. Ideale per scaricare addome e psoas dopo gli Hanging Leg Raise."
+                }
             ],
             'Limbs A': [
-                { name: "Stretching Ischiocrurali", duration: 45, target: "Catena Posteriore", note: "Gamba stesa, piegati in avanti dal bacino senza curvare la schiena. ⚠️ RIPETI PER LATO." },
-                { name: "Stretching Quadricipite", duration: 30, target: "Quadricipite", note: "Porta il tallone al gluteo in piedi o a terra. Retroverti leggermente il bacino. ⚠️ RIPETI PER LATO." },
-                { name: "Stretching Bicipiti a Parete", duration: 30, target: "Bicipiti", note: "Appoggia la mano al muro con le dita all'indietro e ruota le spalle. ⚠️ RIPETI PER LATO." },
-                { name: "Stretching Tricipiti", duration: 30, target: "Tricipiti", note: "Gomito dietro la testa spinto verso il basso. ⚠️ RIPETI PER LATO." }
+                {
+                    name: "Stretching Ischiocrurali e Catena Posteriore",
+                    duration: 45,
+                    target: "Ischiocrurali / Erettori Spinali",
+                    note: "Gamba tesa su un rialzo basso o a terra, fletti il busto in avanti partendo dall'anca con schiena neutra per decomprimere dopo lo Stacco. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Butterfly Stretch (Farfalla a Terra)",
+                    duration: 45,
+                    target: "Adduttori (Gracile / Lungo / Grande)",
+                    note: "Seduto con le piante dei piedi unite, avvicina i talloni al bacino e lascia scendere le ginocchia verso il pavimento espirando, specifico post-Hip Adduction."
+                },
+                {
+                    name: "Stretching Quadricipite (Retroversione Bacino)",
+                    duration: 45,
+                    target: "Quadricipiti / Retto Femorale",
+                    note: "Porta il tallone al gluteo in piedi o a terra mantenendo il bacino in leggera retroversione per scaricare la tensione dell'Isometric Leg Extension. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Bicipiti a Parete",
+                    duration: 45,
+                    target: "Bicipite Brachiale / Deltoide Anteriore",
+                    note: "Appoggia il palmo al muro all'altezza della spalla con le dita rivolte all'indietro e ruota lentamente le spalle in fuori dopo gli Incline Curl. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Tricipiti Overhead",
+                    duration: 45,
+                    target: "Tricipite Brachiale (Capo Lungo)",
+                    note: "Porta la mano dietro la nuca con il gomito rivolto verso l'alto ed esercita una leggera pressione con l'altra mano senza inarcare la lombare. ⚠️ RIPETI PER LATO."
+                }
             ],
             'Torso B': [
-                { name: "Stretching Pettorale a Terra", duration: 45, target: "Pettorali / Dorsali", note: "In ginocchio di fronte a una panca, appoggia i gomiti e spingi il petto verso il pavimento." },
-                { name: "Doorway Lat Stretch", duration: 30, target: "Gran Dorsale", note: "Afferra un montante con una mano e spingi il bacino all'indietro. ⚠️ RIPETI PER LATO." },
-                { name: "Thread the Needle", duration: 30, target: "Deltoide Posteriore", note: "In quadrupedia, infila un braccio sotto il busto appoggiando spalla e tempia a terra. ⚠️ RIPETI PER LATO." },
-                { name: "Cat-Cow", duration: 45, target: "Colonna Vertebrale", note: "Movimento fluido guidato dalla respirazione per decomprimere i dischi." }
+                {
+                    name: "Stretching Pettorale a Panca / Terra",
+                    duration: 45,
+                    target: "Gran e Piccolo Pettorale",
+                    note: "In ginocchio di fronte a una panca, appoggia i gomiti e lascia scendere delicatamente il petto verso il pavimento. Ottimo post-Panca Piana, Pec Deck e isometria in buca."
+                },
+                {
+                    name: "Stretching Deltoide Laterale (Cross-Body)",
+                    duration: 45,
+                    target: "Deltoide Laterale",
+                    note: "Porta il braccio teso davanti al petto e accompagnalo verso la spalla opposta mantenendo la scapola abbassata, specifico post-Lateral Raise. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Thread the Needle",
+                    duration: 45,
+                    target: "Deltoide Posteriore / Cuffia dei Rotatori",
+                    note: "In quadrupedia, fai scivolare un braccio sotto il busto appoggiando spalla e tempia a terra per scaricare il deltoide posteriore post-Reverse Fly. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Cat-Cow + Estensione Toracica",
+                    duration: 45,
+                    target: "Retto Addominale / Colonna Toracica",
+                    note: "Alterna flessione ed estensione fluida della colonna guidata dal respiro per decomprimere la parete addominale dopo il Machine Crunch."
+                }
             ],
             'Limbs B': [
-                { name: "Cavalcatore (Psoas Stretch)", duration: 45, target: "Illiopsoas", note: "In affondo con ginocchio posteriore a terra, spingi il bacino in avanti (addome attivo). ⚠️ RIPETI PER LATO." },
-                { name: "Stretching Glutei (Figura 4)", duration: 45, target: "Piriforme / Grande Gluteo", note: "Sdraiato, incrocia la caviglia sul ginocchio opposto e tira verso il petto. ⚠️ RIPETI PER LATO." },
-                { name: "Stretching Bicipiti e Spalle", duration: 30, target: "Bicipiti / Spalle", note: "Mani intrecciate dietro la schiena, apri il petto e solleva le braccia." },
-                { name: "Stretching Polpacci a Parete", duration: 30, target: "Gastrocnemio / Soleo", note: "Gamba posteriore tesa, tallone a terra, spingi il bacino verso il muro. ⚠️ RIPETI PER LATO." }
+                {
+                    name: "Stretching Quadricipite e Flessori (Affondo)",
+                    duration: 45,
+                    target: "Quadricipiti / Retto Femorale",
+                    note: "In affondo con ginocchio posteriore a terra, contrai il gluteo per retrovertere il bacino e allungare il quadricipite dopo Leg Press e Leg Extension. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Glutei (Figura 4 a Terra)",
+                    duration: 45,
+                    target: "Grande Gluteo / Piriforme",
+                    note: "Sdraiato supino, incrocia una caviglia sul ginocchio opposto e tira la coscia verso il petto per scaricare l'anca dopo la Leg Press. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Pettorale Inferiore e Spalla Anteriore",
+                    duration: 45,
+                    target: "Gran Pettorale (Fasci Sterno-Costali) / Deltoide Anteriore",
+                    note: "Avambraccio al montante con gomito leggermente sopra i 90°, ruota il busto all'esterno per aprire petto e capsula anteriore dopo le Chest Dip zavorrate. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Deltoide Laterale (Cross-Body)",
+                    duration: 45,
+                    target: "Deltoide Laterale",
+                    note: "Porta il braccio teso attraverso il petto mantenendo la spalla bassa per rilassare il capo laterale dopo le alzate al cavo. ⚠️ RIPETI PER LATO."
+                },
+                {
+                    name: "Stretching Bicipiti a Parete + Estensione Addome",
+                    duration: 45,
+                    target: "Bicipiti / Retto Addominale",
+                    note: "Palmo al muro con dita indietro ruotando le spalle per i bicipiti post-Cable Curl; poi estendi le braccia in alto per distendere l'addome post-Cable Crunch. ⚠️ RIPETI PER LATO."
+                }
             ]
         };
-
-        const REST_DURATION = 10; // 10 seconds transition between exercises
 
         const app = {
             activeRoutine: [],
             currentStepIndex: 0,
+            
+            // Settings configurable from UI
+            settings: {
+                restDuration: 10,
+                exerciseDuration: 45
+            },
             
             // Timer state
             timeLeft: 0,
@@ -214,6 +342,9 @@
                 dashboard: document.getElementById('dashboard-screen'),
                 completion: document.getElementById('completion-screen'),
                 
+                inputRest: document.getElementById('input-rest'),
+                inputDuration: document.getElementById('input-duration'),
+                
                 exName: document.getElementById('ex-name'),
                 exTarget: document.getElementById('ex-target'),
                 exNotes: document.getElementById('ex-notes'),
@@ -224,6 +355,18 @@
                 btnPlayPause: document.getElementById('btn-play-pause'),
                 iconPlayPause: document.getElementById('icon-play-pause'),
                 textPlayPause: document.getElementById('text-play-pause')
+            },
+
+            updateSettings() {
+                const restVal = parseInt(this.el.inputRest.value);
+                const durVal = parseInt(this.el.inputDuration.value);
+                
+                if (!isNaN(restVal) && restVal >= 0) {
+                    this.settings.restDuration = restVal;
+                }
+                if (!isNaN(durVal) && durVal > 0) {
+                    this.settings.exerciseDuration = durVal;
+                }
             },
 
             initAudio() {
@@ -287,19 +430,35 @@
                 if (this.isRunning) {
                     this.el.iconPlayPause.className = 'fa-solid fa-pause text-2xl mb-1';
                     this.el.textPlayPause.innerText = 'Pausa';
-                    this.el.btnPlayPause.className = 'col-span-2 bg-amber-600 hover:bg-amber-500 rounded-xl py-4 flex flex-col items-center justify-center shadow-lg shadow-amber-900/50 transition-colors';
+                    this.el.btnPlayPause.className = 'col-span-2 bg-amber-600 hover:bg-amber-500 rounded-xl py-4 flex flex-col items-center justify-center shadow-lg shadow-amber-900/50 transition-colors cursor-pointer';
                 } else {
                     this.el.iconPlayPause.className = 'fa-solid fa-play text-2xl mb-1';
-                    this.el.textPlayPause.innerText = this.timeLeft === this.activeRoutine[this.currentStepIndex]?.duration ? 'Inizia' : 'Riprendi';
-                    this.el.btnPlayPause.className = 'col-span-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl py-4 flex flex-col items-center justify-center shadow-lg shadow-emerald-900/50 transition-colors';
+                    
+                    if (this.timeLeft === 0 && !this.isResting) {
+                        // Stato in cui l'esercizio è finito e aspetta il comando "Avanti"
+                        this.el.textPlayPause.innerText = 'Finito';
+                        this.el.btnPlayPause.className = 'col-span-2 bg-gray-700 text-gray-500 rounded-xl py-4 flex flex-col items-center justify-center shadow-none cursor-default transition-colors';
+                    } else {
+                        this.el.textPlayPause.innerText = this.timeLeft === this.activeRoutine[this.currentStepIndex]?.duration ? 'Inizia' : 'Riprendi';
+                        this.el.btnPlayPause.className = 'col-span-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl py-4 flex flex-col items-center justify-center shadow-lg shadow-emerald-900/50 transition-colors cursor-pointer';
+                    }
                 }
             },
 
             selectRoutine(routineName) {
-                this.activeRoutine = routinesData[routineName];
+                // Ensure latest settings are read from inputs
+                this.updateSettings();
+
+                // Clone routine data and apply custom duration to all exercises
+                const template = baseRoutinesData[routineName];
+                this.activeRoutine = template.map(item => ({
+                    ...item,
+                    duration: this.settings.exerciseDuration
+                }));
+
                 this.currentStepIndex = 0;
-                this.isResting = true; // Start with a prep phase
-                this.timeLeft = REST_DURATION; 
+                this.isResting = this.settings.restDuration > 0; // Skip prep if set to 0
+                this.timeLeft = this.isResting ? this.settings.restDuration : this.activeRoutine[0].duration; 
                 this.isRunning = false;
                 
                 this.el.selector.classList.add('hidden');
@@ -337,6 +496,8 @@
             },
 
             play() {
+                if (this.timeLeft <= 0) return; // Impedisce l'avvio se il timer è a zero
+                
                 this.isRunning = true;
                 this.timerInterval = setInterval(() => this.tick(), 1000);
                 this.updateUI();
@@ -360,10 +521,10 @@
                 this.pause();
                 if (this.currentStepIndex < this.activeRoutine.length - 1) {
                     this.currentStepIndex++;
-                    this.isResting = true;
-                    this.timeLeft = REST_DURATION;
+                    this.isResting = this.settings.restDuration > 0;
+                    this.timeLeft = this.isResting ? this.settings.restDuration : this.activeRoutine[this.currentStepIndex].duration;
                     this.loadStepData();
-                    this.play(); // Auto-start next step
+                    this.play(); // Auto-start del timer del prossimo step (preparazione)
                 } else {
                     this.completeRoutine();
                 }
@@ -382,18 +543,19 @@
                     
                     this.updateUI();
                 } else {
-                    // Time is up, switch state
+                    // Il tempo è scaduto, cambio stato
                     clearInterval(this.timerInterval);
                     
                     if (this.isResting) {
-                        // Move to stretching phase
+                        // Fine preparazione -> Inizio stretching automatico
                         this.isResting = false;
                         this.timeLeft = this.activeRoutine[this.currentStepIndex].duration;
                         this.timerInterval = setInterval(() => this.tick(), 1000);
                         this.updateUI();
                     } else {
-                        // Stretching done, move to next step automatically
-                        this.nextStep();
+                        // Fine stretching -> Si ferma e aspetta l'input manuale "Avanti"
+                        this.isRunning = false;
+                        this.updateUI();
                     }
                 }
             },
